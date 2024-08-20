@@ -43,6 +43,7 @@ class HH(Parser):
             vacancies = response.json()["items"]
             self.vacancies.extend(vacancies)
             self.params["page"] += 1
+            # print(vacancies)
         for vacancie in self.vacancies:
             if vacancie["name"]:
                 title = vacancie["name"]
@@ -63,6 +64,10 @@ class HH(Parser):
             if vacancie["salary"]:
                 if vacancie["salary"]["from"]:
                     salary = vacancie["salary"]["from"]
+                elif vacancie["salary"]["to"]:
+                    salary = vacancie["salary"]["to"]
+                else:
+                    salary = 0
             else:
                 salary = 0
             if vacancie["area"]["name"]:
@@ -71,6 +76,7 @@ class HH(Parser):
                 area = "Не указано."
 
             # print(vacancie)
+            # self.vacancies_short.append(vacancie)
             self.vacancies_short.append(
                 Vacancy(
                     title=title, link=link, description=description, requirement=requirement, salary=salary, area=area
@@ -88,7 +94,12 @@ class HH(Parser):
 if __name__ == "__main__":
     hh = HH()
     hh.load_vacancies('Junior Python Developer')
+    # print(hh.vacancies_short)
+    # hh.load_vacancies('менеджер')
     hh_vacancies = hh.export_vac_list()
-    print(hh_vacancies)
+    print(hh.export_vac_list())
+    # print(hh_vacancies)
     vac_1 = Vacancy("Продавец", "link.ru", "Продажа томатов.", "Без опыта работы.", "Москва", 30000)
-    # vac_1.vac_full()
+    print(vac_1.vac_full())
+    # print(list(map(str, a))))
+    print(*hh.vacancies_short)

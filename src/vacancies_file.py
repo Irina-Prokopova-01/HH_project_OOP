@@ -38,12 +38,13 @@ class VacancyFile(ReadWriteFile):
         self.fullname = os.path.join(DATA_DIR, filename)
         self.vacs_list = []
 
-    def read_file(self) -> None:
+    def read_file(self) -> list:
         """Метод читает указанный файл и сохраняет список объектов вакансий из файла."""
         with open(self.fullname, "r", encoding="UTF-8") as file:
             temp_info = json.load(file)
             print('Файл прочитан')
         self.vacs_list = [Vacancy(**item) for item in temp_info]
+        return self.vacs_list
 
     def write_file(self) -> None:
         """Метод записывает обработанный список вакансий в исходный файл, тем самым изменяя список в нём."""
@@ -63,8 +64,9 @@ class VacancyFile(ReadWriteFile):
             with open(self.fullname, "w", encoding="utf-8") as file:
                 json.dump(temp_vac_list, file, ensure_ascii=False, indent=4)
             print("Файл успешно записан.")
-        except Exception:
-            raise ValueError("При записи файла произошла ошибка!")
+        except Exception as e:
+            raise e
+            # raise ValueError("При записи файла произошла ошибка!")
 
     def export_vacancy_list(self):
         """Метод возвращает список объектов вакансий."""
@@ -76,10 +78,11 @@ class VacancyFile(ReadWriteFile):
 
 
 if __name__ == "__main__":
-    file_v = VacancyFile()
-    print(file_v.write_file())
-    print(file_v.read_file())
     hh = HH()
-    a = hh.export_vac_list()
-    b = hh.load_vacancies('менеджер')
-    print(file_v.import_vacancy_list(b))
+    # a = hh.export_vac_list()
+    hh.load_vacancies('менеджер')
+    file_v = VacancyFile()
+    file_v.import_vacancy_list(hh.vacancies_short)
+    # print(file_v.write_file())
+    print(*file_v.read_file())
+

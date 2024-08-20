@@ -89,7 +89,10 @@ class VacanсyList:
         return result_info
 
 
-# if __name__ == "__main__":
-#     vac_1 = Vacancy("Менеджер", "url", "Продажа оборудования", "Без опыта работы.", "Москва", None)
-#     vac_2 = Vacancy("Разработчик", "url", "Разработчик Python", "Без опыта работы.", "Москва", 30000)
-    # print(vac_1.)
+if __name__ == "__main__":
+    vac_1 = Vacancy("Менеджер", "url", "Продажа оборудования", "Без опыта работы.", "Москва", None)
+    vac_2 = Vacancy("Разработчик", "url", "Разработчик Python", "Без опыта работы.", "Москва", 30000)
+    v = VacanсyList()
+    vacs_list = [vac_1, vac_2]
+    print(vacs_list.top_vacs(5))
+    # print(vacs_list.top_vacs(5))

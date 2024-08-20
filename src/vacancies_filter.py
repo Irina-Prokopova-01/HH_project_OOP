@@ -17,9 +17,9 @@ class VacancyFilter:
     @vacs.setter
     def vacs(self, vacs):
         if isinstance(vacs, list):
-            self.__vacs = []
+            # self.__vacs = []
             self.__vacs = vacs
-            print(vacs)
+            # print(vacs)
         else:
             raise ValueError("Некорректные данные")
 
@@ -64,7 +64,11 @@ if __name__ == "__main__":
     v_filter = VacancyFilter()
     data = [vac_1, vac_2]
     v_filter.vacs = data
-    v_filter.filter_requirement('менеджер')
+    print(v_filter.vacs)
+    # print(data)
+    v_filter.filter_requirement('Менеджер')
+    print(v_filter.vacs)
     v_filter.filter_description('опыт')
-    v_filter.filter_area('Москва')
-    v_filter.filter_salary('30000')
+    print(v_filter.vacs)
+    # v_filter.filter_area('Москва')
+    # v_filter.filter_salary('30000')

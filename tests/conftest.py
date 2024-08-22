@@ -12,7 +12,7 @@ def vacancy_list():
             area="Москва",
             salary=90000,
             description="Работа с технической документацией",
-            requirement="Опрыт работы от 3 лет. Высшее образование.",
+            requirement="Опыт работы от 3 лет. Высшее образование.",
         ),
         Vacancy(
             title="Инженер",
@@ -83,6 +83,18 @@ def vacancy_1():
 
 @pytest.fixture
 def vacancy_2():
+    return Vacancy(
+        title="Инженер 1кат",
+        link="artemtim.ru",
+        area="Москва",
+        salary=90000,
+        description="Работа с технической документацией",
+        requirement="Опрыт работы от 3 лет. Высшее образование.",
+    )
+
+
+@pytest.fixture
+def vacancy_3():
     return Vacancy(
         title="Инженер 1кат",
         link="artemtim.ru",

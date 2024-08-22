@@ -3,7 +3,8 @@ from src.vacancies import Vacancy
 
 class VacanсyList:
     """Класс работает со списком вакансий - добавляет/удаляет вакансии,
-    выводит сокращённое/расширенное отображение вакансий, выводит топ вакансий по зарплате."""
+    выводит сокращённое/расширенное отображение вакансий, выводит топ вакансий по зарплате.
+    """
 
     def __init__(self):
         self.vacs_list = []
@@ -36,7 +37,6 @@ class VacanсyList:
             result_info += f"Номер - {num} {str(item)}\n"
         # print(result_info)
         return result_info
-
 
     def show_vacancy_by_index(self, index):
         """Метод выводит расширенную информацию о вакансии по заданному индексу."""
@@ -90,8 +90,12 @@ class VacanсyList:
 
 
 if __name__ == "__main__":
-    vac_1 = Vacancy("Менеджер", "url", "Продажа оборудования", "Без опыта работы.", "Москва", None)
-    vac_2 = Vacancy("Разработчик", "url", "Разработчик Python", "Без опыта работы.", "Москва", 30000)
+    vac_1 = Vacancy(
+        "Менеджер", "url", "Продажа оборудования", "Без опыта работы.", "Москва", None
+    )
+    vac_2 = Vacancy(
+        "Разработчик", "url", "Разработчик Python", "Без опыта работы.", "Москва", 30000
+    )
     v = VacanсyList()
     vacs_list = [vac_1, vac_2]
     print(vacs_list.top_vacs(5))

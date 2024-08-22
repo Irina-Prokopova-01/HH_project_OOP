@@ -22,7 +22,7 @@ class Parser(ABC):
 class HH(Parser):
     """Класс для работы с API сервиса HeadHunter.
     Получает список вакансий по ключевому слову.
-    Полученный список приводит к необходимому виду, описанному в README.
+    Полученный список приводит к необходимому виду.
     Класс является дочерним классом класса Parser."""
 
     def __init__(self, filename="../data/vacancies.json"):
@@ -79,7 +79,12 @@ class HH(Parser):
             # self.vacancies_short.append(vacancie)
             self.vacancies_short.append(
                 Vacancy(
-                    title=title, link=link, description=description, requirement=requirement, salary=salary, area=area
+                    title=title,
+                    link=link,
+                    description=description,
+                    requirement=requirement,
+                    salary=salary,
+                    area=area,
                 )
             )
             # print(self.vacancies_short)
@@ -89,17 +94,16 @@ class HH(Parser):
         return self.vacancies_short
 
 
-
-
 if __name__ == "__main__":
     hh = HH()
-    hh.load_vacancies('Junior Python Developer')
+    # hh.load_vacancies('Junior Python Developer')
     # print(hh.vacancies_short)
-    # hh.load_vacancies('менеджер')
+    hh.load_vacancies("менеджер")
     hh_vacancies = hh.export_vac_list()
-    print(hh.export_vac_list())
+    # print(*hh.export_vac_list())
+    # print(hh.load_vacancies('менеджер'))
     # print(hh_vacancies)
-    vac_1 = Vacancy("Продавец", "link.ru", "Продажа томатов.", "Без опыта работы.", "Москва", 30000)
-    print(vac_1.vac_full())
-    # print(list(map(str, a))))
+    # vac_1 = Vacancy("Менеджер", "link.ru", "Продажа кондиционеров.", "Без опыта работы.", "Москва", 50000)
+    # print(vac_1.vac_full())
+    # print(list(map(str, vac_1)))
     print(*hh.vacancies_short)

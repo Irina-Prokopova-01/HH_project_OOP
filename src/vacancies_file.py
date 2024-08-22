@@ -3,8 +3,8 @@ import os
 from abc import ABC, abstractmethod
 
 from config import DATA_DIR
-from src.vacancies import Vacancy
 from src.API_HH import HH
+from src.vacancies import Vacancy
 
 
 class ReadWriteFile(ABC):
@@ -42,7 +42,7 @@ class VacancyFile(ReadWriteFile):
         """Метод читает указанный файл и сохраняет список объектов вакансий из файла."""
         with open(self.fullname, "r", encoding="UTF-8") as file:
             temp_info = json.load(file)
-            print('Файл прочитан')
+            print("Файл прочитан")
         self.vacs_list = [Vacancy(**item) for item in temp_info]
         return self.vacs_list
 
@@ -80,9 +80,8 @@ class VacancyFile(ReadWriteFile):
 if __name__ == "__main__":
     hh = HH()
     # a = hh.export_vac_list()
-    hh.load_vacancies('менеджер')
+    # hh.load_vacancies('менеджер')
     file_v = VacancyFile()
-    file_v.import_vacancy_list(hh.vacancies_short)
+    file_v.import_vacancy_list(hh.vacancies)
     # print(file_v.write_file())
     print(*file_v.read_file())
-

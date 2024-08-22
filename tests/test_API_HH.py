@@ -12,13 +12,6 @@ def test_successfully_load_vacancies(mocked_requests_get):
     mock_response.status_code = 200
     mock_response.json.return_value = {"title": "title"}
     mocked_requests_get.return_value = mock_response
-    #
-    # res = HH.load_vacancies(mock_response, 'менеджер')
-    #
-    # assert res == []
-    # mocked_requests_get.assert_called_once_with(
-    #     ANY, headers={}, params={}
-    # )
 
 
 @patch("requests.get")
@@ -55,3 +48,12 @@ def test_add_link_none(vacancy_1, vacancy_list_for_filter):
 def test_add_area_none(vacancy_1, vacancy_list_for_filter):
     with pytest.raises(TypeError):
         vacancy_1.area(vacancy_list_for_filter)
+
+
+
+@patch("requests.get")
+def test_export_vac_list(mock):
+    head = HH()
+    mock.return_value.status_code = 200
+    mock.return_value = []
+    assert head.export_vac_list() == []

@@ -1,8 +1,3 @@
-import os
-
-import pytest
-
-from config import DATA_DIR
 from src.vacancies_file import VacancyFile
 from src.vacancies_filter import VacancyFilter
 
@@ -74,8 +69,6 @@ def test_vacansy_sort_reverce(vacancy_list_sorted, vacancy_list_for_filter):
     assert test.vacs == vacancy_list_for_filter
 
 
-# def test_get_top_vacancies(vacancy_list_for_filter):
+# def test_get_top_vacs(vacancy_list_for_filter):
 #     test = (top_n=5)
-#     assert test.top_vacs(vacancy_list_for_filter) == (
-#         "Вакансия номер 1:\nВакансия: Junior Python\nСсылка: https://hh.ru/vacancy/105338726\nЗарплата от: 0\nОписание: Создание скриптов\nГород: Могилев\n\nВакансия номер 2:\nВакансия: Senior Python\nСсылка: https://hh.ru/vacancy/105338726\nЗарплата от: 10000\nОписание: Приглашаем Инженера\nГород: Москва\n\n"
-#     )
+#     assert test.top_vacs(vacancy_list_for_filter) == ()

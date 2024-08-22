@@ -1,4 +1,4 @@
-from unittest.mock import ANY, MagicMock, patch
+from unittest.mock import MagicMock, patch
 
 import pytest
 from requests.exceptions import HTTPError
@@ -48,7 +48,6 @@ def test_add_link_none(vacancy_1, vacancy_list_for_filter):
 def test_add_area_none(vacancy_1, vacancy_list_for_filter):
     with pytest.raises(TypeError):
         vacancy_1.area(vacancy_list_for_filter)
-
 
 
 @patch("requests.get")

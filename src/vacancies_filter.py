@@ -1,7 +1,6 @@
 import re
 
 from src.API_HH import HH
-from src.vacancies import Vacancy
 from src.vacancies_file import VacancyFile
 
 

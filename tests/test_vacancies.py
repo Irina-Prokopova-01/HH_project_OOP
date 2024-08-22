@@ -1,5 +1,3 @@
-import pytest
-
 from src.vacancies import Vacancy
 
 
@@ -25,6 +23,7 @@ def test_ordering(vacancy_1, vacancy_2, vacancy_3):
     assert vacancy_1 < vacancy_2
     assert vacancy_2 >= vacancy_1
     assert vacancy_2 == vacancy_3
+
 
 def test_lt_(vacancy_1, vacancy_2, vacancy_3):
     assert Vacancy.__lt__(vacancy_1, vacancy_2) is True

@@ -75,13 +75,3 @@ class VacancyFile(ReadWriteFile):
     def import_vacancy_list(self, new_list):
         """Метод принимает новый список объектов вакансий и заменяет им старый."""
         self.vacs_list = new_list
-
-
-if __name__ == "__main__":
-    hh = HH()
-    # a = hh.export_vac_list()
-    # hh.load_vacancies('менеджер')
-    file_v = VacancyFile()
-    file_v.import_vacancy_list(hh.vacancies)
-    # print(file_v.write_file())
-    print(*file_v.read_file())

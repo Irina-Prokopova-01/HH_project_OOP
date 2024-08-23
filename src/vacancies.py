@@ -53,18 +53,3 @@ class Vacancy:
             return self.salary >= other.salary
         else:
             return NotImplemented
-
-
-if __name__ == "__main__":
-    vac_1 = Vacancy(
-        "Менеджер", "url", "Продажа оборудования", "Без опыта работы.", "Москва", None
-    )
-    vac_2 = Vacancy(
-        "Разработчик", "url", "Разработчик Python", "Без опыта работы.", "Москва", 30000
-    )
-    # print(vac_1.__eq__(vac_1, vac_2))
-    print(vac_1.description)
-    print(vac_1.requirement)
-    print(vac_1.vac_full())
-    print(vac_1 < vac_2)
-    # print(vac_2)
